@@ -1,0 +1,246 @@
+$fontColor: #AB817C;
+
+@font-face {
+	font-family: "KarlaBold";
+	src: url("../fonts/Karla-Bold.ttf");
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "KarlaRegular";
+	src: url("../fonts/Karla-Regular.ttf");
+}
+
+body {
+	font-family: "KarlaRegular";
+	background-color: #ccc;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@mixin bg-setup() {
+  	position: relative;
+	width: 30%;
+	margin: 0 auto;
+	padding: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/////////////////////////// INDEX.HTML ///////////////////////////
+
+#main-container {
+
+	background-image: url("../img/background.png");
+	
+	@include bg-setup();
+
+	height: 100%;
+
+	/*** Main CHAT title ***/
+	h1 {
+		margin: 0 0 0 -6px;
+		padding-top: 70px;
+		position: relative;
+		color: white;		
+		z-index: 10;
+		font: {
+			family: "KarlaBold";
+			size: 6.6em;
+		}
+	}
+
+	/*** Central BUBBLE div with its image ***/
+	#image {
+		text-align: center;
+		margin-top: -35px;
+
+		#bubble {
+			height: 190px;
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	/*** The central box where we introduce USERNAME and PASSWORD ***/
+	#white-box {
+		position: relative;
+		background-color: white;
+		margin: -10px auto;
+		height: 280px;
+		width: 360px;
+
+		/*** FORM - in this test, only username does something ***/
+		form {
+			margin: 0 auto;
+			padding: 40px 40px 0 40px;
+			color: $fontColor;
+			font-weight: bold;
+
+			input {
+				width: 100%;
+				border: none;
+				border-bottom: 2px solid #DDD;
+				padding: 8px;
+				margin-bottom: 35px;
+
+				/*** A slight green shadow when focused ***/
+				&:focus {
+					outline: none;
+					box-shadow: 0px 7px 7px -3px #93ED54; 
+				}
+			}
+
+			input[type="password"] {
+				margin-bottom: 0;
+			}
+		}
+
+		/*** Button to send the username ***/
+		#get-started img{
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+		}
+	}
+}
+
+/*** No styles for links apart from underline ***/
+a:link, a:visited {
+	color: white;
+}
+
+/*** Bottom section after the whitebox ***/
+#white-box + p {
+	color: white;
+	font-family: "KarlaRegular";
+	text-align: center;
+	padding: 20px 0 20px 0;
+}
+
+/////////////////////////// CHAT.HTML ///////////////////////////
+
+#chat-container {
+
+	background-image: url("../img/chatBG.png");
+
+	@include bg-setup();
+
+	height: 100vh;
+
+	header>img, footer>img, li>img{
+		width: 100%;
+	}
+
+	/*** Test task title ***/
+	h3 {
+		color: white;
+		position: absolute;
+		top: 15px;
+		left: 165px;
+	}
+
+	/*** Div containing the real current time. Do not confuse with the class .time,
+	which applies styles to the time displayed under every message (see below) ***/
+	#time {
+		text-align: center;
+		color: white;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin:{
+			top: 10px;
+			bottom: -20px;
+		}
+	}
+
+	/*** Clock icon ***/
+	#time>img {
+		height: 20px;
+		margin: {
+			top: 15px;
+			right: 10px;
+		}
+	}
+
+	/*** List with the messages ***/
+	#message-list{
+		width: 80%;
+		margin: 0 auto;
+		list-style: none;
+		padding: 0;
+		position: relative;
+		
+		li{
+			margin-top: 30px;
+			position: relative;
+
+			.message {
+				padding: 0;
+				margin: 0;
+				font-size: 0.9em;
+			}
+
+			/*** Class that displays "5 minutes ago" ***/
+			.time {
+				color: $fontColor;
+				position: absolute;
+				bottom: -15px;
+
+				font: {
+					size: 0.7em;
+					weight: bold;
+				}
+			}
+
+			.right {
+				right: 10px;
+			}
+
+			#message1{
+				width: 80%;
+			}
+
+			#outputMessage1 {
+				position: absolute;
+				width: 185px;
+				height: 47px;
+				top: 15px;
+				left: 55px;
+			}
+
+			#message2{
+				width: 100%;
+			}
+
+			#outputMessage2 {
+				position: absolute;
+				width: 235px;
+				height: 70px;
+				top: 18px;
+				left: 20px;
+			}
+
+			#message3 {
+				height: 2.6em;
+				width: 6em;
+			}
+		}
+	}
+
+	footer {
+		position: absolute;
+		bottom: -5px;
+
+		footer+img {
+			width: 410px
+		}
+	}
+
+	#send-button {
+		position: absolute;
+		width: 14%;
+		right: 30px;
+		bottom: 33px;
+	}
+}

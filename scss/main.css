@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "KarlaBold";
+  src: url("../fonts/Karla-Bold.ttf");
+  font-weight: bold; }
+@font-face {
+  font-family: "KarlaRegular";
+  src: url("../fonts/Karla-Regular.ttf"); }
+@font-face {
+  font-family: "KarlaItalic";
+  src: url("../fonts/Karla-Italic.ttf"); }
+body {
+  font-family: "KarlaRegular";
+  background-color: #ccc;
+  margin: 0; }
+
+#chat-container {
+  background-image: url("../img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30%;
+  margin: 0 auto;
+  padding: 0; }
+  #chat-container h1 {
+    margin: 0 0 0 -6px;
+    padding-top: 70px;
+    font-size: 6.6em;
+    position: relative;
+    color: white;
+    font-family: "KarlaBold";
+    z-index: 10; }
+
+#image {
+  text-align: center;
+  margin-top: -35px; }
+
+#bubble {
+  height: 190px;
+  position: relative;
+  z-index: 1; }
+
+#white-box {
+  position: relative;
+  background-color: white;
+  margin: 0 auto;
+  height: 280px;
+  width: 360px; }
+
+#white-box + p {
+  color: white;
+  font-family: "Karla-Regular";
+  text-align: center;
+  padding: 20px 0 40px 0; }
+
+#get-started img {
+  position: absolute;
+  bottom: 0px;
+  width: 100%; }
+
+/*# sourceMappingURL=main.css.map */
